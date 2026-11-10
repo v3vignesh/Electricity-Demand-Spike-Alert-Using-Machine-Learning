@@ -1,0 +1,15 @@
+GRIDPULSE — TEAM 11
+
+1. Extract this ZIP and open the GridPulse_Team11_VSCode folder in VS Code.
+2. Open Terminal.
+3. Run: python -m venv .venv
+4. Activate: .venv\Scripts\Activate.ps1  (PowerShell)
+5. Run: pip install -r requirements.txt
+6. Run: python train_model.py
+7. Run: streamlit run app.py
+
+Dataset: 8,760 synthetic hourly records (educational demo only).
+Prediction inputs: hour, day of week, temperature, humidity and current demand. Historical lag and rolling features are calculated automatically.
+The live risk probability and temperature-sensitivity graph recalculate when inputs change.
+
+Do not present synthetic data as real utility measurements. Confirm mentor acceptance.

@@ -1,0 +1,226 @@
+{
+  "dataset_type": "Synthetic educational demonstration data",
+  "target_definition": "1 when next-hour demand exceeds 110% of the previous 24-hour mean; otherwise 0",
+  "total_rows": 8760,
+  "train_rows": 6132,
+  "validation_rows": 876,
+  "test_rows": 1752,
+  "feature_count": 7,
+  "features": [
+    "hour",
+    "day_of_week",
+    "is_weekend",
+    "temperature_c",
+    "humidity_pct",
+    "current_demand_mw",
+    "demand_lag_1h_mw"
+  ],
+  "class_counts": {
+    "0": 8130,
+    "1": 630
+  },
+  "train_end": "2025-09-13 11:00:00",
+  "validation_end": "2025-10-19 23:00:00",
+  "test_start": "2025-10-20 00:00:00",
+  "validation_results": {
+    "Dummy Baseline": {
+      "threshold": 0.5,
+      "accuracy": 0.9178,
+      "balanced_accuracy": 0.5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "confusion_matrix": [
+        [
+          804,
+          0
+        ],
+        [
+          72,
+          0
+        ]
+      ]
+    },
+    "Logistic Regression": {
+      "threshold": 0.715,
+      "accuracy": 0.9189,
+      "balanced_accuracy": 0.7029,
+      "precision": 0.5079,
+      "recall": 0.4444,
+      "f1": 0.4741,
+      "confusion_matrix": [
+        [
+          773,
+          31
+        ],
+        [
+          40,
+          32
+        ]
+      ]
+    },
+    "Random Forest": {
+      "threshold": 0.44,
+      "accuracy": 0.9635,
+      "balanced_accuracy": 0.9295,
+      "precision": 0.7273,
+      "recall": 0.8889,
+      "f1": 0.8,
+      "confusion_matrix": [
+        [
+          780,
+          24
+        ],
+        [
+          8,
+          64
+        ]
+      ]
+    }
+  },
+  "test_results": {
+    "Dummy Baseline": {
+      "threshold": 0.5,
+      "accuracy": 0.9195,
+      "balanced_accuracy": 0.5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "confusion_matrix": [
+        [
+          1611,
+          0
+        ],
+        [
+          141,
+          0
+        ]
+      ]
+    },
+    "Logistic Regression": {
+      "threshold": 0.715,
+      "accuracy": 0.9121,
+      "balanced_accuracy": 0.6836,
+      "precision": 0.4496,
+      "recall": 0.4113,
+      "f1": 0.4296,
+      "confusion_matrix": [
+        [
+          1540,
+          71
+        ],
+        [
+          83,
+          58
+        ]
+      ]
+    },
+    "Random Forest": {
+      "threshold": 0.44,
+      "accuracy": 0.9538,
+      "balanced_accuracy": 0.9037,
+      "precision": 0.6685,
+      "recall": 0.844,
+      "f1": 0.7461,
+      "confusion_matrix": [
+        [
+          1552,
+          59
+        ],
+        [
+          22,
+          119
+        ]
+      ]
+    }
+  },
+  "selected_model": "Random Forest",
+  "selected_threshold": 0.44,
+  "selected_metrics": {
+    "threshold": 0.44,
+    "accuracy": 0.9538,
+    "balanced_accuracy": 0.9037,
+    "precision": 0.6685,
+    "recall": 0.844,
+    "f1": 0.7461,
+    "confusion_matrix": [
+      [
+        1552,
+        59
+      ],
+      [
+        22,
+        119
+      ]
+    ]
+  },
+  "subgroup_diagnostics": {
+    "temperature_group": {
+      "Higher temperature": {
+        "records": 127,
+        "accuracy": 0.9528,
+        "precision": 0.7059,
+        "recall": 0.9231,
+        "f1": 0.8,
+        "false_positives": 5,
+        "false_negatives": 1
+      },
+      "Lower temperature": {
+        "records": 1625,
+        "accuracy": 0.9538,
+        "precision": 0.6646,
+        "recall": 0.8359,
+        "f1": 0.7405,
+        "false_positives": 54,
+        "false_negatives": 21
+      }
+    },
+    "demand_group": {
+      "Higher current demand": {
+        "records": 489,
+        "accuracy": 0.8609,
+        "precision": 0.6405,
+        "recall": 0.8829,
+        "f1": 0.7424,
+        "false_positives": 55,
+        "false_negatives": 13
+      },
+      "Lower current demand": {
+        "records": 1263,
+        "accuracy": 0.9897,
+        "precision": 0.84,
+        "recall": 0.7,
+        "f1": 0.7636,
+        "false_positives": 4,
+        "false_negatives": 9
+      }
+    }
+  },
+  "classification_report": {
+    "0": {
+      "precision": 0.9860228716645489,
+      "recall": 0.9633767846058349,
+      "f1-score": 0.9745682888540032,
+      "support": 1611.0
+    },
+    "1": {
+      "precision": 0.6685393258426966,
+      "recall": 0.8439716312056738,
+      "f1-score": 0.7460815047021944,
+      "support": 141.0
+    },
+    "accuracy": 0.9537671232876712,
+    "macro avg": {
+      "precision": 0.8272810987536228,
+      "recall": 0.9036742079057543,
+      "f1-score": 0.8603248967780988,
+      "support": 1752.0
+    },
+    "weighted avg": {
+      "precision": 0.9604719698603931,
+      "recall": 0.9537671232876712,
+      "f1-score": 0.9561797976637035,
+      "support": 1752.0
+    }
+  }
+}
